@@ -3,6 +3,23 @@
 
 <ol>
 <% @posts.each do |post|%>
-  <li><%= post.title %></li>
-<%end%>
+<!--using html to generate link
+  <li><a href="/posts/<%= post.id %>"><%= post.title %></li> -->
+
+    <!--more abstract -->
+    <%= link_to(post.title, "/posts#{post.id}")%>
+
+    <!-- more abstract -->
+    <%= link_to(post.title, post_path(post.id))%>
+
+    <!-- more abstract-->
+    <%= link_to(post.title, post_path(post))%>
+
+    <!-- most abstract, implicitly calling post_path and post.title -->
+    <%= link_to(post.title, post)%>
+  <%end%>
 </ol>
+
+<%-# action view -%>
+
+<%= link_to("About Page", about_path)%>

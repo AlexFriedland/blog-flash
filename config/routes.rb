@@ -7,9 +7,10 @@ Rails.application.routes.draw do
 
   get '/hello_world' => 'posts#home'
 
-  get 'posts' => 'posts#index'
+  get '/posts' => 'posts#index'
+  get '/posts/:id' => 'posts#show', :as => :post
 
-  get 'about' => 'static#about'
+  get 'about_us' => 'static#about'
   get 'team' => 'static#team'
 
 end
